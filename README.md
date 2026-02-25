@@ -23,6 +23,21 @@ Alzheimer’s research is rapidly evolving, with thousands of publications acros
 **Goal**:
 Build a **grounded AI chatbot** that provides **accurate, research-backed answers** about Alzheimer’s early detection.
 
+## 🌍 Real World Impact
+
+780 million people worldwide are at risk 
+of Alzheimer's by 2050 (WHO, 2023)
+
+Early detection can slow progression 
+by up to 40% with timely intervention
+
+80% of rural communities have NO access 
+to neurological specialists
+
+This system gives ANY clinician — regardless 
+of location or resources — access to 
+evidence-based early detection support
+
 ## Key Capabilities
 
 * **Retrieves relevant research papers** from trusted sources
