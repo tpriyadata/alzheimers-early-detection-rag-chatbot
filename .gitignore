@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/
+*.csv
+*.xlsx
+*.json
+*.parquet
+*.pkl
+
+# Models
+models/
+*.pt
+*.pth
+*.h5
+*.joblib
+
+# Embeddings / Vector Store
+embeddings/
+vector_store/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
