@@ -68,6 +68,9 @@ Only **open and trusted medical sources** are used:
 * **RAG Framework:** LangChain / LlamaIndex
 * **Vector Store:** FAISS / ChromaDB
 * **LLMs:** Open-source or API-based LLMs
+* **Primary LLM:** Claude (Anthropic API)
+* **Fallback:** Mistral-7B (open source, offline use)
+* **Embeddings:** all-MiniLM-L6-v2 (Sentence Transformers)
 * **Backend / UI:** FastAPI / Streamlit
 * **Evaluation:** Custom relevance & faithfulness checks
 
