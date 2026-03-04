@@ -123,7 +123,12 @@ def load_components():
     # Load Claude client
     
     # Works both locally AND on Streamlit Cloud
-    api_key = st.secrets.get("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_API_KEY")
+       try:
+    api_key = st.secrets["ANTHROPIC_API_KEY"]
+except:
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+
+client = anthropic.Anthropic(api_key=api_key)
     client = anthropic.Anthropic(api_key=api_key)
     
     return model, index, chunks, client
