@@ -1,44 +1,67 @@
-# Python
-__pycache__/
-*.py[cod]
-
-# Virtual Environment
+# ── Virtual Environments ──────────────────────────────
 venv/
 env/
 .venv/
+ENV/
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Data
-data/
-*.csv
-*.xlsx
-*.json
-*.parquet
-*.pkl
-
-# Models
-models/
-*.pt
-*.pth
-*.h5
-*.joblib
-
-# Embeddings / Vector Store
-embeddings/
-vector_store/
-
-# Logs
-*.log
-
-# Environment variables
+# ── Secret Keys & Environment Variables ──────────────
 .env
+.env.local
+.env.development
+.env.production
+.env.test
 
-# IDE
+# ── Python Cache ──────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ── Jupyter Notebooks ─────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── Distribution / Build ──────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+wheels/
+
+# ── Testing ───────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# ── VS Code ───────────────────────────────────────────
 .vscode/
-.idea/
+*.code-workspace
 
-# OS
+# ── OS Files ──────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# ── Data & Models (too large for GitHub) ─────────────
+data/raw/
+data/processed/
+*.pdf
+*.csv
+vector_store/faiss_index/
+vector_store/chroma_db/
+
+# ── Logs ──────────────────────────────────────────────
+*.log
+logs/
+
+# ── ML / AI Artifacts ─────────────────────────────────
+*.pkl
+*.pt
+*.bin
+*.h5
+# ── Data & Models (too large for GitHub) ─────────────
+data/raw/
+*.pdf
+vector_store/faiss_index/

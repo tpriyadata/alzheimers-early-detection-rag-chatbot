@@ -1,0 +1,7 @@
+anthropic
+python-dotenv
+sentence-transformers
+faiss-cpu
+streamlit
+biopython
+numpy
