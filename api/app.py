@@ -34,6 +34,76 @@ st.divider()
 # load once, reuse every time
 # don't reload on every question!
 
+def build_pipeline_if_needed():
+    """Build FAISS index if it doesn't exist"""
+    
+    if not os.path.exists("vector_store/faiss_index/alzheimer.index"):
+        
+        st.info("⚙️ Building research database for first time...")
+        
+        # Fetch papers
+        from Bio import Entrez
+        Entrez.email = "research@alzheimer.com"
+        
+        handle = Entrez.esearch(
+            db="pubmed",
+            term="Alzheimer's early detection biomarkers",
+            retmax=10
+        )
+        results = Entrez.read(handle)
+        handle.close()
+        
+        fetch_handle = Entrez.efetch(
+            db="pubmed",
+            id=results["IdList"],
+            rettype="abstract",
+            retmode="xml"
+        )
+        papers = Entrez.read(fetch_handle)
+        fetch_handle.close()
+        
+        # Process papers
+        import re
+        chunks = []
+        for article in papers["PubmedArticle"]:
+            title = str(article["MedlineCitation"]["Article"]["ArticleTitle"])
+            try:
+                abstract = str(article["MedlineCitation"]["Article"]["Abstract"]["AbstractText"][0])
+            except KeyError:
+                abstract = "No abstract available"
+            
+            text = re.sub(r'\s+', ' ', title + ". " + abstract).strip()
+            chunks.append({
+                "pmid": str(article["MedlineCitation"]["PMID"]),
+                "title": title,
+                "text": text,
+                "source": "PubMed"
+            })
+        
+        # Save chunks
+        os.makedirs("data/processed", exist_ok=True)
+        with open("data/processed/chunks.json", "w") as f:
+            json.dump(chunks, f)
+        
+        # Generate embeddings
+        embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+        texts = [c["text"] for c in chunks]
+        embeddings = embedding_model.encode(texts)
+        embeddings = embeddings.astype(np.float32)
+        
+        # Build FAISS index
+        os.makedirs("vector_store/faiss_index", exist_ok=True)
+        dimension = embeddings.shape[1]
+        index = faiss.IndexFlatL2(dimension)
+        index.add(embeddings)
+        faiss.write_index(
+            index,
+            "vector_store/faiss_index/alzheimer.index"
+        )
+        
+        st.success("✅ Research database built!")
+        st.rerun()
+
 @st.cache_resource
 def load_components():
     
