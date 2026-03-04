@@ -1,3 +1,6 @@
+## 🚀 Live Demo
+👉 [Try the Chatbot](https://alzheimers-early-detection-rag-chatbot-cdb5nsrc65ambm5cvwulug.streamlit.app/)
+
 # alzheimers-early-detection-rag-chatbot
 
 ### Alzheimer’s Early Detection Research Chatbot
