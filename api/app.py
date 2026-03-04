@@ -104,6 +104,12 @@ def build_pipeline_if_needed():
         st.success("✅ Research database built!")
         st.rerun()
 
+# Build pipeline if needed
+build_pipeline_if_needed()
+
+# Load everything
+model, index, chunks, client = load_components()
+
 @st.cache_resource
 def load_components():
     
