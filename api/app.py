@@ -107,37 +107,36 @@ def build_pipeline_if_needed():
 
 @st.cache_resource
 def load_components():
-    
+
     # Load embedding model
     model = SentenceTransformer("all-MiniLM-L6-v2")
-    
+
     # Load FAISS index
     index = faiss.read_index(
         "vector_store/faiss_index/alzheimer.index"
     )
-    
+
     # Load chunks
     with open("data/processed/chunks.json", "r") as f:
         chunks = json.load(f)
-    
+
     # Load Claude client
-    
-    # Works both locally AND on Streamlit Cloud
-try:
-    api_key = st.secrets["ANTHROPIC_API_KEY"]
-except KeyError:
-    st.error("ANTHROPIC_API_KEY not found in Streamlit secrets.")
-    
-client = anthropic.Anthropic(api_key=api_key)
-       
-return model, index, chunks, client
+    try:
+        api_key = st.secrets["ANTHROPIC_API_KEY"]
+    except KeyError:
+        st.error("ANTHROPIC_API_KEY not found in Streamlit secrets.")
+        st.stop()  # 🚨 important to stop execution
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    return model, index, chunks, client
+
 
 # Build pipeline if needed
 build_pipeline_if_needed()
 
 # Load everything
 model, index, chunks, client = load_components()
-
 
 st.success("✅ Research database loaded!")
 
