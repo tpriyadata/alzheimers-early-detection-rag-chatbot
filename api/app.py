@@ -20,12 +20,65 @@ st.set_page_config(
     layout="centered"
 )
 
-# ── Title & Description ──────────────────
-st.title("🧠 Alzheimer's Early Detection Chatbot")
+import streamlit as st
+
+# ─────────────────────────────────────────────
+# Page Config
+# ─────────────────────────────────────────────
+st.set_page_config(
+    page_title="Alzheimer's Early Detection Chatbot",
+    page_icon="🧠",
+    layout="centered"
+)
+
+# ─────────────────────────────────────────────
+# Hero Section
+# ─────────────────────────────────────────────
 st.markdown("""
-*Powered by PubMed research + Claude AI*
-Ask any question about Alzheimer's early detection.
-""")
+<div style="text-align:center; padding: 10px 0 20px 0;">
+    <h1 style="margin-bottom:5px;">🧠 Alzheimer's Early Detection Assistant</h1>
+    <p style="font-size:18px; color:#4F4F4F;">
+        Powered by PubMed Research + Claude AI
+    </p>
+    <p style="font-size:15px; color:#6E6E6E;">
+        Ask evidence-based questions about early detection, biomarkers, symptoms, and research insights.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+st.divider()
+
+# ─────────────────────────────────────────────
+# Medical Disclaimer (Professional Styled Card)
+# ─────────────────────────────────────────────
+st.markdown("""
+<div style="
+    border-radius:14px;
+    padding:20px;
+    background-color:#FFF8E6;
+    border-left:6px solid #E67E22;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom:25px;
+">
+    <h4 style="margin-bottom:12px;">⚠️ Medical Disclaimer</h4>
+
+    <p>
+    This AI research assistant is intended for 
+    <strong>educational and research purposes only.</strong>
+    </p>
+
+    <ul>
+        <li>❌ Not a clinical diagnostic tool</li>
+        <li>❌ Not a substitute for professional medical advice</li>
+        <li>✅ Provides informational responses grounded in research literature</li>
+        <li>✅ Always consult a licensed healthcare professional</li>
+    </ul>
+
+    <p style="font-size:13px; color:#555;">
+    In case of medical emergency, call 911 or your local emergency number immediately.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
 # Load the Model and Data
