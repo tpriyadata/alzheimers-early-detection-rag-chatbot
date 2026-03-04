@@ -121,9 +121,10 @@ def load_components():
         chunks = json.load(f)
     
     # Load Claude client
-    client = anthropic.Anthropic(
-        api_key=os.getenv("ANTHROPIC_API_KEY")
-    )
+    
+    # Works both locally AND on Streamlit Cloud
+api_key = st.secrets.get("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_API_KEY")
+client = anthropic.Anthropic(api_key=api_key)
     
     return model, index, chunks, client
 
