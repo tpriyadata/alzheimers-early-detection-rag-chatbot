@@ -124,8 +124,10 @@ def load_components():
     
     # Works both locally AND on Streamlit Cloud
     try:
-    api_key = st.secrets["ANTHROPIC_API_KEY"]
-    except:
+        api_key = st.secrets["ANTHROPIC_API_KEY"]
+    except KeyError:
+        st.error("ANTHROPIC_API_KEY not found in Streamlit secrets.")
+    
     api_key = os.getenv("ANTHROPIC_API_KEY")
 
 client = anthropic.Anthropic(api_key=api_key)
