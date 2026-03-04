@@ -60,7 +60,7 @@ st.markdown("""
     box-shadow:0 2px 10px rgba(0,0,0,0.05);
     margin-bottom:25px;
 ">
-    <h4 style="margin-bottom:12px;">⚠️ Medical Disclaimer</h4>
+    <h4>⚠️ Medical Disclaimer</h4>
 
     <p>
     This AI research assistant is intended for 
@@ -79,7 +79,6 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
 st.divider()
 # Load the Model and Data
 # ── Load Models & Data ───────────────────
