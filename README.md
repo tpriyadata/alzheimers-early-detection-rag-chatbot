@@ -150,8 +150,7 @@ alzheimer-rag-chatbot/
 
 ## Author
 
-**Priya**
-*Data Analyst | NLP & GenAI Engineer*
+**Tamil Priya**
 
 
 
