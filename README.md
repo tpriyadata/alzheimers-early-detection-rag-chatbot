@@ -150,7 +150,7 @@ alzheimer-rag-chatbot/
 
 ## Author
 
-**Tamil Priya**
+**TamilPriya Balaji**
 
 
 
