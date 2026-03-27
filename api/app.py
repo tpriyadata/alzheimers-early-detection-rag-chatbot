@@ -130,7 +130,7 @@ def build_pipeline_if_needed():
             "vector_store/faiss_index/alzheimer.index"
         )
 
-        st.success("✅ Research database built!")
+        st.success(" Research database built!")
         st.rerun()
 
 # ── Load Components ──────────────────────
@@ -159,7 +159,7 @@ def load_components():
 build_pipeline_if_needed()
 model, index, chunks, client = load_components()
 
-st.success("✅ Research database loaded!")
+st.success(" Research database loaded!")
 st.divider()
 
 # ── Retrieval Function ───────────────────
@@ -239,7 +239,7 @@ if prompt := st.chat_input(
         st.markdown(result["answer"])
 
         st.divider()
-        st.markdown("**📚 Sources Used:**")
+        st.markdown("** Sources Used:**")
         for i, source in enumerate(result["sources"]):
             st.markdown(
                 f"{i+1}. *{source['title'][:80]}...*"
