@@ -26,7 +26,7 @@ Alzheimer’s research is rapidly evolving, with thousands of publications acros
 **Goal**:
 Build a **grounded AI chatbot** that provides **accurate, research-backed answers** about Alzheimer’s early detection.
 
-## 🌍 Real World Impact
+##  Real World Impact
 
 780 million people worldwide are at risk 
 of Alzheimer's by 2050 (WHO, 2023)
@@ -74,7 +74,7 @@ Only **open and trusted medical sources** are used:
 * WHO Alzheimer’s reports
 * ClinicalTrials.gov (metadata)
 
-⚠️ No patient-level or private health data is used.
+ No patient-level or private health data is used.
 
 ##  Tech Stack
 
